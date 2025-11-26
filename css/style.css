@@ -1,0 +1,311 @@
+/* ---------------------------------------------
+   Reset
+--------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------------------------------------------
+   Body
+--------------------------------------------- */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #e6f3ff; /* azul clarito agradable */
+  scroll-behavior: smooth;
+
+  padding-top: 100px; /* espacio para header fijo */
+  padding-bottom: 80px; /* espacio para footer fijo */
+}
+
+/* ---------------------------------------------
+   HEADER
+--------------------------------------------- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #007acc; /* azul vibrante */
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+header.hidden {
+  transform: translateY(-100%);
+}
+
+/* Navbar horizontal */
+header nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* espacio entre enlaces */
+  flex-wrap: nowrap;
+}
+
+header nav a {
+  display: inline-block;
+  padding: 10px 18px;
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  background-color: #005bb5;
+  transition: background 0.3s, color 0.3s;
+}
+
+header nav a:hover,
+header nav a.active {
+  background-color: #003f66;
+  color: #ffd700;
+}
+
+header h1 {
+  margin-bottom: 8px;
+}
+
+/* Responsive navbar: vertical en móvil */
+@media (max-width: 600px) {
+  header nav {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  header nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ---------------------------------------------
+   FOOTER
+--------------------------------------------- */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #003f66; /* azul oscuro elegante */
+  color: rgb(202, 202, 202);
+  padding: 15px;
+  text-align: center;
+  z-index: 900;
+  box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+footer.hidden {
+  transform: translateY(100%);
+}
+
+/* ------------------------------------------
+---------------------------------------------
+   SECCIONES
+---------------------------------------------
+--------------------------------------------- */
+section {
+  padding: 20px 20px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto 20px auto;
+  scroll-margin-top: 120px; /* evita que el header tape el anchor */
+  padding: 30px 15px;
+}
+
+section:first-of-type {
+  padding-top: 45px;
+}
+
+/* ---------------------------------------------
+   Sección HERO
+--------------------------------------------- */
+.hero-section {
+  margin-top: 20px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  flex-wrap: wrap; /* permite que se apilen en móvil */
+}
+
+/* Columnas laterales */
+.hero-text {
+  flex: 2 1 300px; /* ocupan más espacio que la central */
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.2rem); /* tamaño adaptativo */
+  line-height: 1.5;
+  text-align: justify;
+  padding: 0 15px;
+}
+
+/* Titulos de texto lateral */
+.hero-text h2 {
+  font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* Columna central: foto + pie de texto */
+.hero-photo {
+  flex: 1 1 200px; /* ocupa menos que laterales */
+  display: flex;
+  flex-direction: column; /* pie de texto debajo de la imagen */
+  align-items: center;
+  text-align: center;
+  justify-content: center; /* centra verticalmente */
+  height: 100%; /* opcional: asegurarse de ocupar altura del contenedor */
+}
+
+.hero-photo img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.hero-photo p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsivo: móviles */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text,
+  .hero-photo {
+    flex: 1 1 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+
+  .hero-photo img {
+    max-width: 260px;
+    margin-bottom: 10px;
+  }
+}
+
+/* ---------------------------------------------
+   Sección FORMACION
+--------------------------------------------- */
+.Formacion-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: nowrap; /* una sola fila */
+  margin-top: 25px;
+}
+
+.Formacion-container .proyecto-card {
+  width: 220px;
+  max-width: 300px;
+  padding: 20px;
+  background-color: rgb(136, 226, 226);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.Formacion-container .proyecto-card:hover {
+  background-color: #63aae7;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive: permite 2 filas */
+
+@media (max-width: 900px) {
+  .Formacion-container {
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------------------------------------------
+   Sección EXPERIENCIA tarjetas en vertical
+--------------------------------------------- */
+.Experiencia-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 25px;
+  align-items: center;
+}
+
+.Experiencia-container .proyecto-card {
+  width: 100%;
+  max-width: 850px;
+  padding: 25px;
+  background-color: rgb(136, 226, 226);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.Experiencia-container .proyecto-card:hover {
+  background-color: #63aae7;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------------------------------------------
+   BOTONES
+--------------------------------------------- */
+.button {
+  display: inline-block;
+  padding: 12px 22px;
+  margin-top: 15px;
+  background-color: #0088ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #0068c4;
+}
+/* ---------------------------------------------
+   MODAL
+--------------------------------------------- */
+#modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  max-width: 700px;
+}
+
+#modalOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
