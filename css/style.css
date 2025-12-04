@@ -7,17 +7,16 @@
   padding: 0;
 }
 
-/* ---------------------------------------------
-   Body
---------------------------------------------- */
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #e6f3ff; /* azul clarito agradable */
-  scroll-behavior: smooth;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ocupa toda la altura de la ventana */
+}
 
-  padding-top: 100px; /* espacio para header fijo */
-  padding-bottom: 80px; /* espacio para footer fijo */
+main {
+  flex: 1; /* empuja el footer al final */
+  margin-top: 100px; /* espacio para header fijo */
+  padding: 20px;
 }
 
 /* ---------------------------------------------
@@ -27,25 +26,24 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #007acc; /* azul vibrante */
+  background-color: #1780c7;
   color: white;
-  padding: 15px 20px;
+  padding: 10px 15px;
   text-align: center;
   z-index: 1000;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease;
 }
-
 header.hidden {
   transform: translateY(-100%);
+  opacity: 0;
 }
 
-/* Navbar horizontal */
 header nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px; /* espacio entre enlaces */
+  gap: 15px;
   flex-wrap: nowrap;
 }
 
@@ -65,60 +63,134 @@ header nav a.active {
   background-color: #003f66;
   color: #ffd700;
 }
-
-header h1 {
-  margin-bottom: 8px;
+/* ---------------------------------------------
+   BODY
+--------------------------------------------- */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  background-color: #8dc3f7;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 40px 40px;
 }
 
-/* Responsive navbar: vertical en móvil */
-@media (max-width: 600px) {
-  header nav {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  header nav a {
-    width: 100%;
-    text-align: center;
-  }
+body.header-hidden {
+  transition: padding-top 0.3s ease;
 }
-
 /* ---------------------------------------------
    FOOTER
 --------------------------------------------- */
+
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #003f66; /* azul oscuro elegante */
-  color: rgb(202, 202, 202);
-  padding: 15px;
+  background: repeating-linear-gradient(
+    45deg,
+    #00274d,
+    #00274d 5px,
+    #003f66 5px,
+    #003f66 10px
+  );
+  color: #cacaca;
+  padding: 15px 20px;
   text-align: center;
-  z-index: 900;
+  font-size: 0.95rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.25);
-  transition: transform 0.3s ease;
 }
 
-footer.hidden {
-  transform: translateY(100%);
+/* Contenedor flex */
+#footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-/* ------------------------------------------
----------------------------------------------
-   SECCIONES
----------------------------------------------
+/* Cada línea flex */
+#footerContent .linea1,
+#footerContent .linea2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* Grupos internos */
+.group {
+  display: flex;
+  align-items: center;
+}
+
+/* Etiquetas */
+.label,
+.symbol,
+.text {
+  color: #cacaca;
+  font-weight: 500;
+}
+
+/* Valores dinámicos */
+.result {
+  color: #ffd700;
+  font-weight: bold;
+  margin-left: 5px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Animación para reloj */
+#clock {
+  color: #87ceeb;
+  font-style: italic;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.5;
+  }
+}
+
+/* Línea de copyright */
+.linea3 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #footerContent .linea1,
+  #footerContent .linea2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* --------------------------------------------
+-----------------------------------------------
+   SECCIONES del body
+-----------------------------------------------
 --------------------------------------------- */
 section {
-  padding: 20px 20px;
+  padding: 25px 15px;
   text-align: center;
   max-width: 1000px;
   margin: 0 auto 20px auto;
-  scroll-margin-top: 120px; /* evita que el header tape el anchor */
-  padding: 30px 15px;
+  scroll-margin-top: 120px; /* evita que el header tape */
 }
 
 section:first-of-type {
-  padding-top: 45px;
+  padding-top: 110px;
 }
 
 /* ---------------------------------------------
@@ -126,6 +198,7 @@ section:first-of-type {
 --------------------------------------------- */
 .hero-section {
   margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .hero-content {
@@ -134,36 +207,38 @@ section:first-of-type {
   justify-content: center;
   gap: 20px;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 20 auto;
   padding: 40px 20px;
-  flex-wrap: wrap; /* permite que se apilen en móvil */
+  flex-wrap: wrap;
 }
 
-/* Columnas laterales */
 .hero-text {
-  flex: 2 1 300px; /* ocupan más espacio que la central */
-  font-size: clamp(1rem, 1vw + 0.5rem, 1.2rem); /* tamaño adaptativo */
+  flex: 2 1 300px;
   line-height: 1.5;
   text-align: justify;
-  padding: 0 15px;
 }
 
-/* Titulos de texto lateral */
+.hero-text p {
+  font-size: clamp(0.95rem, 1vw + 0.3rem, 1.1rem);
+  margin-bottom: 20px;
+  hyphens: auto;
+}
+
 .hero-text h2 {
   font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
   margin-bottom: 15px;
   text-align: left;
 }
 
-/* Columna central: foto + pie de texto */
 .hero-photo {
-  flex: 1 1 200px; /* ocupa menos que laterales */
+  flex: 1 1 200px;
   display: flex;
-  flex-direction: column; /* pie de texto debajo de la imagen */
+  flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: center; /* centra verticalmente */
-  height: 100%; /* opcional: asegurarse de ocupar altura del contenedor */
+  justify-content: center;
+  height: 100%;
+  margin: 0 40px; /* margen horizontal extra */
 }
 
 .hero-photo img {
@@ -180,9 +255,9 @@ section:first-of-type {
   margin: 0;
   font-size: 0.9rem;
   color: #555;
+  margin: 0 10px;
 }
 
-/* Responsivo: móviles */
 @media (max-width: 900px) {
   .hero-content {
     flex-direction: column;
@@ -211,8 +286,8 @@ section:first-of-type {
   flex-direction: row;
   justify-content: center;
   gap: 25px;
-  flex-wrap: nowrap; /* una sola fila */
-  margin-top: 25px;
+  flex-wrap: nowrap;
+  margin-top: 10px;
 }
 
 .Formacion-container .proyecto-card {
@@ -230,8 +305,6 @@ section:first-of-type {
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
-
-/* Responsive: permite 2 filas */
 
 @media (max-width: 900px) {
   .Formacion-container {
@@ -268,26 +341,95 @@ section:first-of-type {
 }
 
 /* ---------------------------------------------
-   BOTONES
+   CONTACTO
 --------------------------------------------- */
-.button {
-  display: inline-block;
-  padding: 12px 22px;
-  margin-top: 15px;
-  background-color: #0088ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.3s;
-  font-weight: bold;
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap; /* permite que se apilen solo en pantallas pequeñas */
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
 }
 
-.button:hover {
-  background-color: #0068c4;
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+  font-size: 1.05rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+
+  flex: 0 1 auto; /* importante: permite que crezcan lo justo y no ocupen toda la fila */
+  white-space: nowrap; /* evita que el texto se rompa en varias líneas */
 }
-/* ---------------------------------------------
-   MODAL
---------------------------------------------- */
+
+/* Iconos */
+.contact-btn .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  width: 2rem;
+  text-align: center;
+}
+
+/* Gradientes */
+.contact-btn.linkedin {
+  background: linear-gradient(135deg, #0077b5, #00a0dc);
+}
+.contact-btn.github {
+  background: linear-gradient(135deg, #333, #555);
+}
+.contact-btn.phone {
+  background: linear-gradient(135deg, #28a745, #3ed473);
+}
+.contact-btn.email {
+  background: linear-gradient(135deg, #d14836, #ff5a4f);
+}
+.contact-btn.map {
+  background: linear-gradient(135deg, #ff9800, #ffc04d);
+}
+
+/* Hover */
+.contact-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  animation: pulse 0.6s ease-out;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive: en móvil, apilar verticalmente */
+@media (max-width: 600px) {
+  .contact-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contact-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
 #modal {
   display: none;
   position: fixed;
