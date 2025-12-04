@@ -64,8 +64,9 @@ header nav a.active {
 }
 @media (max-width: 1000px) {
   header nav {
-    flex-direction: column;
+    flex-direction: column !important; /* fuerza columna */
     gap: 8px;
+    align-items: center;
   }
 
   header nav a {
