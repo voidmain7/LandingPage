@@ -10,12 +10,12 @@
 .page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* ocupa toda la altura de la ventana */
+  min-height: 100vh;
 }
 
 main {
-  flex: 1; /* empuja el footer al final */
-  margin-top: 100px; /* espacio para header fijo */
+  flex: 1;
+  margin-top: 100px;
   padding: 20px;
 }
 
@@ -30,10 +30,11 @@ header {
   color: white;
   padding: 10px 15px;
   text-align: center;
-  z-index: 1000;
+  z-index: 1200;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease;
 }
+
 header.hidden {
   transform: translateY(-100%);
   opacity: 0;
@@ -44,11 +45,9 @@ header nav {
   justify-content: center;
   align-items: center;
   gap: 15px;
-  flex-wrap: nowrap;
 }
 
 header nav a {
-  display: inline-block;
   padding: 10px 18px;
   color: #ffd700;
   text-decoration: none;
@@ -63,6 +62,7 @@ header nav a.active {
   background-color: #003f66;
   color: #ffd700;
 }
+
 /* ---------------------------------------------
    BODY
 --------------------------------------------- */
@@ -79,9 +79,6 @@ body {
   background-size: 40px 40px;
 }
 
-body.header-hidden {
-  transition: padding-top 0.3s ease;
-}
 /* ---------------------------------------------
    FOOTER
 --------------------------------------------- */
@@ -102,7 +99,6 @@ footer {
   box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* Contenedor flex */
 #footerContent {
   display: flex;
   flex-direction: column;
@@ -110,7 +106,6 @@ footer {
   gap: 10px;
 }
 
-/* Cada línea flex */
 #footerContent .linea1,
 #footerContent .linea2 {
   display: flex;
@@ -119,13 +114,11 @@ footer {
   gap: 15px;
 }
 
-/* Grupos internos */
 .group {
   display: flex;
   align-items: center;
 }
 
-/* Etiquetas */
 .label,
 .symbol,
 .text {
@@ -133,15 +126,12 @@ footer {
   font-weight: 500;
 }
 
-/* Valores dinámicos */
 .result {
   color: #ffd700;
   font-weight: bold;
   margin-left: 5px;
-  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-/* Animación para reloj */
 #clock {
   color: #87ceeb;
   font-style: italic;
@@ -160,14 +150,12 @@ footer {
   }
 }
 
-/* Línea de copyright */
 .linea3 {
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   #footerContent .linea1,
   #footerContent .linea2 {
@@ -176,17 +164,15 @@ footer {
   }
 }
 
-/* --------------------------------------------
------------------------------------------------
-   SECCIONES del body
------------------------------------------------
+/* ---------------------------------------------
+   SECCIONES GENERALES
 --------------------------------------------- */
 section {
   padding: 25px 15px;
   text-align: center;
   max-width: 1000px;
   margin: 0 auto 20px auto;
-  scroll-margin-top: 120px; /* evita que el header tape */
+  scroll-margin-top: 120px;
 }
 
 section:first-of-type {
@@ -194,24 +180,31 @@ section:first-of-type {
 }
 
 /* ---------------------------------------------
-   Sección HERO
+   HERO
 --------------------------------------------- */
 .hero-section {
   margin-top: 20px;
   margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Contenedor principal del hero */
 .hero-content {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
   max-width: 1400px;
-  margin: 20 auto;
+  margin: 20px auto;
   padding: 40px 20px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
+/* Texto */
 .hero-text {
   flex: 2 1 300px;
   line-height: 1.5;
@@ -230,6 +223,7 @@ section:first-of-type {
   text-align: left;
 }
 
+/* Foto */
 .hero-photo {
   flex: 1 1 200px;
   display: flex;
@@ -238,7 +232,7 @@ section:first-of-type {
   text-align: center;
   justify-content: center;
   height: 100%;
-  margin: 0 40px; /* margen horizontal extra */
+  margin: 0 40px;
 }
 
 .hero-photo img {
@@ -252,12 +246,12 @@ section:first-of-type {
 }
 
 .hero-photo p {
-  margin: 0;
+  margin: 0 10px;
   font-size: 0.9rem;
   color: #555;
-  margin: 0 10px;
 }
 
+/* Responsive */
 @media (max-width: 900px) {
   .hero-content {
     flex-direction: column;
@@ -277,43 +271,40 @@ section:first-of-type {
     margin-bottom: 10px;
   }
 }
-
 /* ---------------------------------------------
-   Sección FORMACION
+   FORMACION
 --------------------------------------------- */
 .Formacion-container {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   gap: 25px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin-top: 10px;
 }
 
-.Formacion-container .proyecto-card {
-  width: 220px;
-  max-width: 300px;
+.Formacion-container .proyecto-card,
+.Experiencia-container .proyecto-card {
   padding: 20px;
   background-color: rgb(136, 226, 226);
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-.Formacion-container .proyecto-card:hover {
+.Formacion-container .proyecto-card:hover,
+.Experiencia-container .proyecto-card:hover {
   background-color: #63aae7;
   transform: translateY(-5px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 900px) {
-  .Formacion-container {
-    flex-wrap: wrap;
-  }
+.Formacion-container .proyecto-card {
+  width: 220px;
+  max-width: 300px;
 }
 
 /* ---------------------------------------------
-   Sección EXPERIENCIA tarjetas en vertical
+   EXPERIENCIA
 --------------------------------------------- */
 .Experiencia-container {
   display: flex;
@@ -326,18 +317,8 @@ section:first-of-type {
 .Experiencia-container .proyecto-card {
   width: 100%;
   max-width: 850px;
-  padding: 25px;
-  background-color: rgb(136, 226, 226);
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: left;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-}
-
-.Experiencia-container .proyecto-card:hover {
-  background-color: #63aae7;
-  transform: translateY(-5px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  padding: 25px;
 }
 
 /* ---------------------------------------------
@@ -345,7 +326,7 @@ section:first-of-type {
 --------------------------------------------- */
 .contact-buttons {
   display: flex;
-  flex-wrap: wrap; /* permite que se apilen solo en pantallas pequeñas */
+  flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
   margin-top: 25px;
@@ -364,22 +345,15 @@ section:first-of-type {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-
-  flex: 0 1 auto; /* importante: permite que crezcan lo justo y no ocupen toda la fila */
-  white-space: nowrap; /* evita que el texto se rompa en varias líneas */
+  white-space: nowrap;
 }
 
-/* Iconos */
 .contact-btn .icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 1.4rem;
   width: 2rem;
   text-align: center;
 }
 
-/* Gradientes */
 .contact-btn.linkedin {
   background: linear-gradient(135deg, #0077b5, #00a0dc);
 }
@@ -396,40 +370,25 @@ section:first-of-type {
   background: linear-gradient(135deg, #ff9800, #ffc04d);
 }
 
-/* Hover */
 .contact-btn:hover {
   transform: scale(1.08);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-  animation: pulse 0.6s ease-out;
 }
 
-/* Pulse animation */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Responsive: en móvil, apilar verticalmente */
 @media (max-width: 600px) {
   .contact-buttons {
     flex-direction: column;
     gap: 12px;
   }
-
   .contact-btn {
     justify-content: center;
     width: 100%;
   }
 }
 
+/* ---------------------------------------------
+   MODAL
+--------------------------------------------- */
 #modal {
   display: none;
   position: fixed;
@@ -449,5 +408,5 @@ section:first-of-type {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 1500;
 }
