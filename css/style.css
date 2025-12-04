@@ -64,23 +64,20 @@ header nav a.active {
 }
 @media (max-width: 700px) {
   header nav {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: flex;
+    flex-direction: column; /* enlaces en columna */
+    align-items: center; /* centrados horizontalmente */
+    gap: 8px; /* espacio entre enlaces */
+    padding: 6px 0; /* menos padding */
   }
 
   header nav a {
-    width: 100% !important;
-    max-width: 250px;
-    text-align: center !important;
-    padding: 6px 12px;
-    font-size: 0.8rem;
-  }
-
-  header {
-    padding: 6px 10px;
+    width: 80%; /* un poco de margen a los lados */
+    max-width: 250px; /* opcional */
+    text-align: center;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 6px; /* opcional, mejora visual */
   }
 }
 
