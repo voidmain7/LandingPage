@@ -62,22 +62,30 @@ header nav a.active {
   background-color: #003f66;
   color: #ffd700;
 }
+
 @media (max-width: 700px) {
   header nav {
     display: flex;
-    flex-direction: column; /* enlaces en columna */
-    align-items: center; /* centrados horizontalmente */
-    gap: 8px; /* espacio entre enlaces */
-    padding: 6px 0; /* menos padding */
+    flex-direction: column;
+    /* enlaces en columna */
+    align-items: center;
+    /* centrados horizontalmente */
+    gap: 8px;
+    /* espacio entre enlaces */
+    padding: 6px 0;
+    /* menos padding */
   }
 
   header nav a {
-    width: 80%; /* un poco de margen a los lados */
-    max-width: 250px; /* opcional */
+    width: 80%;
+    /* un poco de margen a los lados */
+    max-width: 250px;
+    /* opcional */
     text-align: center;
     padding: 8px 12px;
     font-size: 0.9rem;
-    border-radius: 6px; /* opcional, mejora visual */
+    border-radius: 6px;
+    /* opcional, mejora visual */
   }
 }
 
@@ -89,11 +97,9 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
   background-color: #8dc3f7;
-  background-image: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.1) 1px,
-    transparent 1px
-  );
+  background-image: radial-gradient(circle,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -109,12 +115,11 @@ section {
 }
 
 section:first-of-type {
-  padding-top: 110px;
-  padding-top: 30px;
+  padding-top: 120px;
 }
 
 #Formacion {
-  margin-top: -20px;
+  margin-top: -60px;
   padding-top: 15px;
 }
 
@@ -133,7 +138,7 @@ section:first-of-type {
 --------------------------------------------- */
 .hero-section {
   margin-top: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -146,56 +151,60 @@ section:first-of-type {
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 20px auto;
   padding: 40px 20px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   width: 100%;
 }
 
 /* Texto */
 .hero-text {
-  flex: 2 1 300px;
+  flex: 1 1 240px;
+  min-width: 180px;
   line-height: 1.5;
   text-align: justify;
 }
 
 .hero-text p {
   font-size: clamp(0.95rem, 1vw + 0.3rem, 1.1rem);
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   hyphens: auto;
 }
 
 .hero-text h2 {
   font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-align: left;
 }
 
 /* Foto */
 .hero-photo {
-  flex: 1 1 200px;
+  flex: 0 1 300px;
+  min-width: 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   justify-content: center;
   height: 100%;
-  margin: 0 40px;
+  margin: 25px 0 0;
 }
 
 .hero-photo img {
   width: 100%;
   max-width: 250px;
-  border-radius: 8px;
+  min-width: 180px;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   object-fit: cover;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
 
 .hero-photo p {
-  margin: 0 10px;
+  margin: 0;
   font-size: 0.9rem;
   color: #555;
 }
@@ -216,10 +225,10 @@ section:first-of-type {
   }
 
   .hero-photo img {
-    max-width: 260px;
-    margin-bottom: 10px;
+    max-width: 180px;
   }
 }
+
 /* ---------------------------------------------
    FORMACION
 --------------------------------------------- */
@@ -312,12 +321,15 @@ section:first-of-type {
 .contact-btn.linkedin {
   background: linear-gradient(135deg, #0077b5, #00a0dc);
 }
+
 .contact-btn.github {
   background: linear-gradient(135deg, #333, #555);
 }
+
 .contact-btn.email {
   background: linear-gradient(135deg, #d14836, #ff5a4f);
 }
+
 .contact-btn.map {
   background: linear-gradient(135deg, #ff9800, #ffc04d);
 }
@@ -385,6 +397,7 @@ section:first-of-type {
     gap: 12px;
     align-items: center;
   }
+
   .contact-btn {
     justify-content: center;
     width: auto;
@@ -417,18 +430,17 @@ section:first-of-type {
   background: rgba(0, 0, 0, 0.5);
   z-index: 1500;
 }
+
 /* ---------------------------------------------
    FOOTER
 --------------------------------------------- */
 
 footer {
-  background: repeating-linear-gradient(
-    45deg,
-    #00274d,
-    #00274d 5px,
-    #003f66 5px,
-    #003f66 10px
-  );
+  background: repeating-linear-gradient(45deg,
+      #00274d,
+      #00274d 5px,
+      #003f66 5px,
+      #003f66 10px);
   color: #cacaca;
   padding: 15px 20px;
   text-align: center;
@@ -477,11 +489,13 @@ footer {
 }
 
 @keyframes blink {
+
   0%,
   50%,
   100% {
     opacity: 1;
   }
+
   25%,
   75% {
     opacity: 0.5;
@@ -496,9 +510,12 @@ footer {
 
 @media (max-width: 600px) {
   #footerContent {
-    align-items: flex-start; /* alinea todo a la izquierda */
-    padding-left: 15px; /* opcional: un pequeño margen */
+    align-items: flex-start;
+    /* alinea todo a la izquierda */
+    padding-left: 15px;
+    /* opcional: un pequeño margen */
   }
+
   #footerContent .linea1,
   #footerContent .linea2 {
     flex-direction: column;
