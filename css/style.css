@@ -110,6 +110,22 @@ section {
 
 section:first-of-type {
   padding-top: 110px;
+  padding-top: 30px;
+}
+
+#Formacion {
+  margin-top: -20px;
+  padding-top: 15px;
+}
+
+#Formacion h2 {
+  margin-top: 0;
+}
+
+#DatosInteres h3 {
+  margin-top: 30px;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  color: #003f66;
 }
 
 /* ---------------------------------------------
@@ -299,9 +315,6 @@ section:first-of-type {
 .contact-btn.github {
   background: linear-gradient(135deg, #333, #555);
 }
-.contact-btn.phone {
-  background: linear-gradient(135deg, #28a745, #3ed473);
-}
 .contact-btn.email {
   background: linear-gradient(135deg, #d14836, #ff5a4f);
 }
@@ -315,14 +328,15 @@ section:first-of-type {
 }
 
 .linktree-card {
-  background: #111827;
-  padding: 40px;
+  background: #0b7719;
+  padding: 30px 25px;
   border-radius: 20px;
   text-align: center;
-  width: 320px;
-  max-width: 100%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 12px 30px rgba(0, 92, 170, 0.18);
   margin: 0 auto 30px;
+  border: 1px solid rgba(23, 128, 199, 0.14);
 }
 
 .avatar {
@@ -331,36 +345,37 @@ section:first-of-type {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
-  border: 3px solid #22c55e;
+  border: 3px solid #83ca40;
 }
 
 .title {
-  color: white;
-  font-size: 28px;
+  color: #000000;
+  font-size: 26px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .subtitle {
-  color: #9ca3af;
+  color: #000000;
   font-size: 14px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .link-btn {
   display: inline-block;
   text-decoration: none;
-  background: #22c55e;
-  color: #0f172a;
-  padding: 15px;
+  background: #000000;
+  color: #ffffff;
+  padding: 14px 18px;
   margin-bottom: 15px;
   border-radius: 12px;
   font-weight: bold;
   transition: 0.3s;
+  width: calc(100% - 4px);
 }
 
 .link-btn:hover {
-  background: #16a34a;
+  background: #005bb5;
   transform: translateY(-2px);
 }
 
