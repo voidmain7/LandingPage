@@ -327,6 +327,21 @@ section:first-of-type {
   margin: 25px auto 0;
 }
 
+.proyecto-galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  margin: 12px 0 16px;
+}
+
+.proyecto-galeria img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+}
+
 #ProyectosPersonales iframe {
   width: 100%;
   max-width: 560px;
